@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'Slave-1'}
 
     stages {
         stage('Git clone') {
@@ -23,12 +23,12 @@ pipeline {
             }
         }
         
-         stage('k8s deployment'){
+        /*stage('k8s deployment'){
             steps{
              sh 'kubectl apply -f Deployment.yml'
             }
-        }  
-        
+        }*/  
+        // Deployment has to be done in CD job. So frontend cd job we have to create seperately which has to run on the Jenkins master only.
         
     }
 }
