@@ -29,6 +29,6 @@ pipeline {
             }
         }*/  
         // Deployment has to be done in CD job. So we have to create frontend cd job seperately which has to run on the Jenkins master only.
-        
+        // Because kubectl is installed and .kube/config file is available in jenkins master only
     }
 }
