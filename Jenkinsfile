@@ -16,10 +16,10 @@ pipeline {
         
        stage('Docker Image Push'){
             steps{
-            withCredentials([string(credentialsId: 'docker_pwd', variable: 'docker_pwd')]) {
-                   sh 'docker login -u ashokit -p ${docker_pwd}'
-                   sh 'docker push javapranay/ecomm_store'
-            }
+                withCredentials([string(credentialsId: 'Docker-token', variable: 'secretPass')]) {
+                    sh 'docker login -u javapranay -p ${secretPass}'
+                    sh 'docker push javapranay/ecomm_store'
+                }
             }
         }
         
